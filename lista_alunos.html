@@ -12,8 +12,8 @@
 
 <body>
     <div class="container">
-        <h1>Lista de Professores</h1>
-        <div id="lista-professores"></div>
+        <h1>Lista de Alunos</h1>
+        <div id="lista-alunos"></div>
     </div>
 
     <!-- Modal de Edição -->
@@ -39,8 +39,8 @@
                             <input type="text" class="form-control" id="editar-matricula">
                         </div>
                         <div class="form-group">
-                            <label for="editar-disciplina">Disciplina:</label>
-                            <input type="text" class="form-control" id="editar-disciplina">
+                            <label for="editar-disciplina">Nota:</label>
+                            <input id="editar-nota" type="number" id="preco" name="preco" step="0.01" min="0" max="1000">
                         </div>
                     </form>
                 </div>
@@ -52,6 +52,6 @@
             </div>
         </div>
     </div>
-    <script src="script-professor.js"></script>
+    <script src="script-aluno.js"></script>
 </body>
 </html>

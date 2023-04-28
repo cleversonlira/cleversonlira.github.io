@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Lista de Professores</title>
+  <title>Cadastro de Alunos</title>
   <!-- Importando os arquivos CSS do Bootstrap -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -15,7 +15,7 @@
     <div class="row">
       <div class="col-md-6 offset-md-3">
 
-        <h1 class="text-center mb-5">Cadastro de Professor</h1>
+        <h1 class="text-center mb-5">Cadastro de Aluno</h1>
 
         <form id="form-cadastro">
           <div class="mb-3">
@@ -29,12 +29,12 @@
           </div>
 
           <div class="mb-3">
-            <label for="disciplina" class="form-label">Disciplina</label>
-            <input type="text" class="form-control" id="disciplina" name="disciplina" required>
+            <label for="disciplina" class="form-label">Nota</label>
+            <input id="nota" class="form-control" type="number" id="nota" name="nota" step="0.01" min="0" max="1000">
           </div>
 
           <button type="submit" class="btn btn-primary">Cadastrar</button>
-          <a class="btn btn-info" href="lista_professores.html">Lista de Professores</a>
+          <a class="btn btn-info" href="lista_alunos.html">Lista de Alunos</a>
           </button>
         </form>
 
@@ -42,6 +42,6 @@
     </div>
   </div>
 
-  <script src="script-professor.js"></script>
+  <script src="script-aluno.js"></script>
 
 </body>

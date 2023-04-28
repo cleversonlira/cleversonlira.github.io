@@ -29,7 +29,7 @@ fetch('http://54.201.86.131:8080/api/professores')
   .catch(error => console.error(error));
 
 // Função para remover um professor
-function removerProfessor(id) {
+function removerAluno(id) {
   fetch(`http://54.201.86.131:8080/api/professores/${id}`, {
     method: 'DELETE'
   })
@@ -41,7 +41,7 @@ function removerProfessor(id) {
 }
 
 // Função para editar um professor
-function editarProfessor(id) {
+function editarAluno(id) {
   // Faz uma requisição GET para obter os dados do professor a ser editado
   fetch(`http://54.201.86.131:8080/api/professores/${id}`)
     .then(response => response.json())
@@ -58,7 +58,7 @@ function editarProfessor(id) {
 }
 
 // Função para atualizar um professor
-function atualizarProfessor() {
+function atualizarAluno() {
   const id = document.getElementById('editar-id').value;
   const nome = document.getElementById('editar-nome').value;
   const matricula = document.getElementById('editar-matricula').value;
@@ -83,7 +83,7 @@ function atualizarProfessor() {
   .catch(error => console.error(error));
 }
 
- function cadastrarProfessor(professor) {
+ function cadastrarAluno(professor) {
   const url = "http://54.201.86.131:8080/api/professores";
   const options = {
     method: "POST",
@@ -110,6 +110,6 @@ formCadastro.addEventListener("submit", event => {
   const nome = document.querySelector("#nome").value;
   const matricula = document.querySelector("#matricula").value;
   const disciplina = document.querySelector("#disciplina").value;
-  cadastrarProfessor({ nome, matricula, disciplina });
+  cadastrarAluno({ nome, matricula, disciplina });
 });
 
