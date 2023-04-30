@@ -1,8 +1,9 @@
 // Seleciona o elemento que irá exibir os professores
 const listaProfessores = document.getElementById('lista-professores');
 
-// Faz uma requisição GET para a API
-fetch('http://54.201.86.131:8080/api/professores')
+// Faz uma requisição GET para a API 
+// 54.201.86.131
+fetch('http://localhost:8080/api/professores')
   .then(response => response.json())
   .then(data => {
     // Para cada professor retornado pela API, cria um elemento HTML para exibi-lo
@@ -29,8 +30,8 @@ fetch('http://54.201.86.131:8080/api/professores')
   .catch(error => console.error(error));
 
 // Função para remover um professor
-function removerAluno(id) {
-  fetch(`http://54.201.86.131:8080/api/professores/${id}`, {
+function removerProfessor(id) {
+  fetch(`http://localhost:8080/api/professores/${id}`, {
     method: 'DELETE'
   })
   .then(() => {
@@ -41,9 +42,9 @@ function removerAluno(id) {
 }
 
 // Função para editar um professor
-function editarAluno(id) {
+function editarProfessor(id) {
   // Faz uma requisição GET para obter os dados do professor a ser editado
-  fetch(`http://54.201.86.131:8080/api/professores/${id}`)
+  fetch(`http://localhost:8080/api/professores/${id}`)
     .then(response => response.json())
     .then(professor => {
       // Preenche o formulário de edição com os dados do professor
@@ -58,8 +59,7 @@ function editarAluno(id) {
 }
 
 // Função para atualizar um professor
-function atualizarAluno() {
-  const id = document.getElementById('editar-id').value;
+function atualizarProfessor() {
   const nome = document.getElementById('editar-nome').value;
   const matricula = document.getElementById('editar-matricula').value;
   const disciplina = document.getElementById('editar-disciplina').value;
@@ -69,7 +69,7 @@ function atualizarAluno() {
     disciplina
   };
   // Faz uma requisição PUT para atualizar os dados do professor
-  fetch(`http://54.201.86.131:8080/api/professores/${id}`, {
+  fetch(`http://localhost:8080/api/professores/${matricula}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
@@ -83,8 +83,8 @@ function atualizarAluno() {
   .catch(error => console.error(error));
 }
 
- function cadastrarAluno(professor) {
-  const url = "http://54.201.86.131:8080/api/professores";
+ function cadastrarProfessor(professor) {
+  const url = "http://localhost:8080/api/professores";
   const options = {
     method: "POST",
     headers: {

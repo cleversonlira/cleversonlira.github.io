@@ -59,7 +59,6 @@ function editarAluno(id) {
 
 // Função para atualizar um aluno
 function atualizarAluno() {
-  const id = document.getElementById('editar-id').value;
   const nome = document.getElementById('editar-nome').value;
   const matricula = document.getElementById('editar-matricula').value;
   const nota = document.getElementById('editar-nota').value;
@@ -69,7 +68,7 @@ function atualizarAluno() {
     nota
   };
   // Faz uma requisição PUT para atualizar os dados do aluno
-  fetch(`http://localhost:8080/api/alunos/${id}`, {
+  fetch(`http://localhost:8080/api/alunos/${matricula}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
