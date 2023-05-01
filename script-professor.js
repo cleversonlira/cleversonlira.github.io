@@ -110,6 +110,6 @@ formCadastro.addEventListener("submit", event => {
   const nome = document.querySelector("#nome").value;
   const matricula = document.querySelector("#matricula").value;
   const disciplina = document.querySelector("#disciplina").value;
-  cadastrarAluno({ nome, matricula, disciplina });
+  cadastrarProfessor({ nome, matricula, disciplina });
 });
 
