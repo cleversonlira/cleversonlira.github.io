@@ -1,7 +1,7 @@
 // Função para cadastrar uma nova atividade
 function cadastrarAtividade(nome, nota, alunoId) {
     const data = { nome, nota, aluno: { id: alunoId } };
-    fetch('http://localhost:8080/api/atividades', {
+    fetch('http://54.201.86.131:8080/api/atividades', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
@@ -23,7 +23,7 @@ function cadastrarAtividade(nome, nota, alunoId) {
   
   // Função para listar todas as atividades cadastradas
   function listarAtividades() {
-    fetch('http://localhost:8080/api/atividades')
+    fetch('http://54.201.86.131:8080/api/atividades')
     .then(response => {
       if (!response.ok) {
         throw new Error(response.statusText);
@@ -61,7 +61,7 @@ function cadastrarAtividade(nome, nota, alunoId) {
   });
 
   function carregarAlunos() {
-    fetch('http://localhost:8080/api/alunos')
+    fetch('http://54.201.86.131:8080/api/alunos')
       .then(response => response.json())
       .then(alunos => {
         const dropdown = document.querySelector('#aluno');
@@ -79,7 +79,7 @@ function cadastrarAtividade(nome, nota, alunoId) {
   listarAtividades();
 
   function carregarAtividades() {
-    fetch('http://localhost:8080/api/atividades')
+    fetch('http://54.201.86.131:8080/api/atividades')
       .then(response => response.json())
       .then(atividades => {
         const lista = document.querySelector('#lista-atividades');
