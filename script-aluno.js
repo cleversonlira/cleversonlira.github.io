@@ -2,7 +2,8 @@
 const listaAlunos = document.getElementById('lista-alunos');
 
 // Faz uma requisição GET para a API
-fetch('http://54.201.86.131:8080/api/alunos')
+// 54.201.86.131
+fetch('http://localhost:8080/api/alunos')
   .then(response => response.json())
   .then(data => {
     // Para cada aluno retornado pela API, cria um elemento HTML para exibi-lo
@@ -13,7 +14,6 @@ fetch('http://54.201.86.131:8080/api/alunos')
             <h5 class="card-title">${aluno.nome}</h5>
             <p class="card-text">
               Matrícula: ${aluno.matricula}<br>
-              Nota: ${aluno.nota}
             </p>
             <div class="btn-group" role="group">
               <button type="button" class="btn btn-primary" onclick="editarAluno(${aluno.id})">Editar</button>
@@ -30,7 +30,7 @@ fetch('http://54.201.86.131:8080/api/alunos')
 
 // Função para remover um aluno
 function removerAluno(id) {
-  fetch(`http://54.201.86.131:8080/api/alunos/${id}`, {
+  fetch(`http://localhost:8080/api/alunos/${id}`, {
     method: 'DELETE'
   })
   .then(() => {
@@ -43,14 +43,13 @@ function removerAluno(id) {
 // Função para editar um aluno
 function editarAluno(id) {
   // Faz uma requisição GET para obter os dados do aluno a ser editado
-  fetch(`http://54.201.86.131:8080/api/alunos/${id}`)
+  fetch(`http://localhost:8080/api/alunos/${id}`)
     .then(response => response.json())
     .then(aluno => {
       // Preenche o formulário de edição com os dados do aluno
       document.getElementById('editar-id').value = aluno.id;
       document.getElementById('editar-nome').value = aluno.nome;
       document.getElementById('editar-matricula').value = aluno.matricula;
-      document.getElementById('editar-nota').value = aluno.nota;
       // Exibe o modal de edição
       $('#modal-editar').modal('show');
     })
@@ -61,14 +60,12 @@ function editarAluno(id) {
 function atualizarAluno() {
   const nome = document.getElementById('editar-nome').value;
   const matricula = document.getElementById('editar-matricula').value;
-  const nota = document.getElementById('editar-nota').value;
   const atualizacao = {
     nome,
-    matricula,
-    nota
+    matricula
   };
   // Faz uma requisição PUT para atualizar os dados do aluno
-  fetch(`http://54.201.86.131:8080/api/alunos/${matricula}`, {
+  fetch(`http://localhost:8080/api/alunos/${matricula}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
@@ -83,7 +80,7 @@ function atualizarAluno() {
 }
 
  function cadastrarAluno(aluno) {
-  const url = "http://54.201.86.131:8080/api/alunos";
+  const url = "http://localhost:8080/api/alunos";
   const options = {
     method: "POST",
     headers: {
@@ -108,7 +105,5 @@ formCadastro.addEventListener("submit", event => {
   event.preventDefault();
   const nome = document.querySelector("#nome").value;
   const matricula = document.querySelector("#matricula").value;
-  const nota = document.querySelector("#nota").value;
-  cadastrarAluno({ nome, matricula, nota });
+  cadastrarAluno({ nome, matricula });
 });
-
