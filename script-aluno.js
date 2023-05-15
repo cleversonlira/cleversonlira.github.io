@@ -2,8 +2,8 @@
 const listaAlunos = document.getElementById('lista-alunos');
 
 // Faz uma requisição GET para a API
-// 54.201.86.131
-fetch('http://54.201.86.131:8080/api/alunos')
+// 35.163.253.248
+fetch('http://35.163.253.248:8080/api/alunos')
   .then(response => response.json())
   .then(data => {
     // Para cada aluno retornado pela API, cria um elemento HTML para exibi-lo
@@ -30,7 +30,7 @@ fetch('http://54.201.86.131:8080/api/alunos')
 
 // Função para remover um aluno
 function removerAluno(id) {
-  fetch(`http://54.201.86.131:8080/api/alunos/${id}`, {
+  fetch(`http://35.163.253.248:8080/api/alunos/${id}`, {
     method: 'DELETE'
   })
   .then(() => {
@@ -43,7 +43,7 @@ function removerAluno(id) {
 // Função para editar um aluno
 function editarAluno(id) {
   // Faz uma requisição GET para obter os dados do aluno a ser editado
-  fetch(`http://54.201.86.131:8080/api/alunos/${id}`)
+  fetch(`http://35.163.253.248:8080/api/alunos/${id}`)
     .then(response => response.json())
     .then(aluno => {
       // Preenche o formulário de edição com os dados do aluno
@@ -65,7 +65,7 @@ function atualizarAluno() {
     matricula
   };
   // Faz uma requisição PUT para atualizar os dados do aluno
-  fetch(`http://54.201.86.131:8080/api/alunos/${matricula}`, {
+  fetch(`http://35.163.253.248:8080/api/alunos/${matricula}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
@@ -80,7 +80,7 @@ function atualizarAluno() {
 }
 
  function cadastrarAluno(aluno) {
-  const url = "http://54.201.86.131:8080/api/alunos";
+  const url = "http://35.163.253.248:8080/api/alunos";
   const options = {
     method: "POST",
     headers: {

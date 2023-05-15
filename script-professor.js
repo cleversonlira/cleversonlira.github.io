@@ -2,8 +2,8 @@
 const listaProfessores = document.getElementById('lista-professores');
 
 // Faz uma requisição GET para a API 
-// 54.201.86.131
-fetch('http://54.201.86.131:8080/api/professores')
+// 35.163.253.248
+fetch('http://35.163.253.248:8080/api/professores')
   .then(response => response.json())
   .then(data => {
     // Para cada professor retornado pela API, cria um elemento HTML para exibi-lo
@@ -31,7 +31,7 @@ fetch('http://54.201.86.131:8080/api/professores')
 
 // Função para remover um professor
 function removerProfessor(id) {
-  fetch(`http://54.201.86.131:8080/api/professores/${id}`, {
+  fetch(`http://35.163.253.248:8080/api/professores/${id}`, {
     method: 'DELETE'
   })
   .then(() => {
@@ -44,7 +44,7 @@ function removerProfessor(id) {
 // Função para editar um professor
 function editarProfessor(id) {
   // Faz uma requisição GET para obter os dados do professor a ser editado
-  fetch(`http://54.201.86.131:8080/api/professores/${id}`)
+  fetch(`http://35.163.253.248:8080/api/professores/${id}`)
     .then(response => response.json())
     .then(professor => {
       // Preenche o formulário de edição com os dados do professor
@@ -69,7 +69,7 @@ function atualizarProfessor() {
     disciplina
   };
   // Faz uma requisição PUT para atualizar os dados do professor
-  fetch(`http://54.201.86.131:8080/api/professores/${matricula}`, {
+  fetch(`http://35.163.253.248:8080/api/professores/${matricula}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
@@ -84,7 +84,7 @@ function atualizarProfessor() {
 }
 
  function cadastrarProfessor(professor) {
-  const url = "http://54.201.86.131:8080/api/professores";
+  const url = "http://35.163.253.248:8080/api/professores";
   const options = {
     method: "POST",
     headers: {
