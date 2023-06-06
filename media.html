@@ -79,7 +79,7 @@
         
 
         //35.163.253.248
-    fetch(`http://localhost:8080/api/alunos/${idAluno}/media`)
+    fetch(`http://35.163.253.248:8080/api/alunos/${idAluno}/media`)
     .then(response => response.json())
     .then(dado => {
       console.log("Dado que veio do back-end: " + dado)
@@ -94,7 +94,7 @@
       }
     }
 
-    fetch('http://localhost:8080/api/alunos')
+    fetch('http://35.163.253.248:8080/api/alunos')
     .then(response => response.json())
     .then(data => {
         // Para cada aluno retornado pela API, cria um elemento HTML para exibi-lo
