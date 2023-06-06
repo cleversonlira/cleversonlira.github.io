@@ -35,6 +35,7 @@
               <div class="dropdown-menu" aria-labelledby="listarDropdown">
                 <a class="dropdown-item" href="lista_professores.html">Professor</a>
                 <a class="dropdown-item" href="lista_alunos.html">Aluno</a>
+                <a class="dropdown-item" href="media.html">Media</a>
               </div>
             </li>
           </ul>
@@ -71,24 +72,19 @@
       if (alunoSelect.value !== "") {
         // Aqui você pode adicionar a lógica para calcular a média das atividades do aluno selecionado
         // Substitua o código abaixo pela sua lógica de cálculo da média
-
         console.log(alunoSelect.value)
-
         let idAluno = alunoSelect.value.substring(0, alunoSelect.value.indexOf(' - '));
         console.log("idAluno:" + idAluno);
-        
-
         //35.163.253.248
-    fetch(`http://35.163.253.248:8080/api/alunos/${idAluno}/media`)
-    .then(response => response.json())
-    .then(dado => {
-      console.log("Dado que veio do back-end: " + dado)
-      mediaFinal = dado;
-      media.innerText = mediaFinal.toFixed(2);
-    })
-    .catch(error => console.error(error));
-    console.log("mediaFinal:" + mediaFinal);
-    mediaContainer.classList.remove("d-none");
+        fetch(`http://35.163.253.248:8080/api/alunos/${idAluno}/media`)
+        .then(response => response.json())
+        .then(dado => {
+          console.log("Dado que veio do back-end: " + dado)
+          mediaFinal = dado;
+          media.innerText = mediaFinal.toFixed(2);
+        })
+        .catch(error => console.error(error));
+        mediaContainer.classList.remove("d-none");
       } else {
         mediaContainer.classList.add("d-none");
       }

@@ -84,16 +84,46 @@ function cadastrarAtividade(nome, nota, alunoId) {
       .then(atividades => {
         const lista = document.querySelector('#lista-atividades');
         lista.innerHTML = '';
+        let i = 1;
         atividades.forEach(atividade => {
           const row = lista.insertRow();
           row.innerHTML = `
+            <td class="d-none">${atividade.id}</td>
             <td>${atividade.nome}</td>
             <td>${atividade.nota}</td>
             <td>${atividade.aluno.nome}</td>
+            <td>
+              <button id="btn-excluir${i++}" class="btn-excluir btn btn-danger">
+                <i class="bi bi-trash-fill"></i> Excluir
+              </button>
+            </td>
           `;
+        });
+      })
+      .then(() => {
+        // Adiciona o evento de exclusão a cada botão de exclusão
+        botoesExclusao = document.querySelectorAll(".btn-excluir");
+        botoesExclusao.forEach(botaoExcluir => {
+          botaoExcluir.addEventListener("click", () => {
+            // Obtém o ID da atividade a ser excluída
+            const idAtividade = botaoExcluir.parentNode.parentNode.querySelector('.d-none').textContent;
+            // Realiza a chamada fetch para excluir a atividade
+            fetch(`http://35.163.253.248:8080/api/atividades/${idAtividade}`, {
+              method: 'DELETE'
+            })
+              .then(response => {
+                if (response.ok) {
+                  console.log('Atividade excluída com sucesso!');
+                  location.reload();
+                } else {
+                  console.error('Erro ao excluir a atividade.');
+                }
+              })
+              .catch(error => {
+                console.error('Erro na requisição:', error);
+              });
+          });
         });
       });
   }
-
   carregarAtividades();
-  
