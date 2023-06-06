@@ -79,22 +79,22 @@
         
 
         //35.163.253.248
-    fetch(`http://35.163.253.248:8080/api/alunos/${idAluno}/media`)
+    fetch(`http://localhost:8080/api/alunos/${idAluno}/media`)
     .then(response => response.json())
-    .then(data => {
-        mediaFinal = data;
+    .then(dado => {
+      console.log("Dado que veio do back-end: " + dado)
+      mediaFinal = dado;
+      media.innerText = mediaFinal.toFixed(2);
     })
     .catch(error => console.error(error));
-        console.log(mediaFinal);
-        // Exibindo a média das atividades
-        media.innerText = mediaFinal.toFixed(2);
-        mediaContainer.classList.remove("d-none");
+    console.log("mediaFinal:" + mediaFinal);
+    mediaContainer.classList.remove("d-none");
       } else {
         mediaContainer.classList.add("d-none");
       }
     }
 
-    fetch('http://35.163.253.248:8080/api/alunos')
+    fetch('http://localhost:8080/api/alunos')
     .then(response => response.json())
     .then(data => {
         // Para cada aluno retornado pela API, cria um elemento HTML para exibi-lo
